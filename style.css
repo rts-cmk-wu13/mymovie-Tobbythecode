@@ -21,6 +21,12 @@ img {
 
 
 
+#root > main {
+    grid-column: fullw;
+    display: grid;
+    grid-template-columns:[fullw-start] 0.5rem [content-start] repeat(3, 1fr) [content-end] 0.5rem [fullw-end];
+
+}
 
 
 #root > header {
@@ -37,6 +43,7 @@ header > * {
     display: grid;
     grid-template-columns: subgrid;
 }
+
 
 
 #root > main, #root > footer {
@@ -74,14 +81,73 @@ main > *, footer > * {
 
 .navContainer{
 
-    display: grid;
+    display: flex;
+    justify-content: space-around;
 }
 .Movie__navbar{
+    display: flex;
+    
+ 
 
-    display: grid;
+
   
 }
 
 
 
+.main_test--scroll{
+    display: flex;
+    overflow-x: scroll;
+    gap: 1rem;
+    grid-column: span 3;
+}
+.popular_movie--container{
 
+      display: flex;
+    grid-column: span 1;
+
+}
+
+.popular_movie--container img{
+    width: 5rem;
+    height: 7.5rem;
+    border-radius: 8px; 
+
+}
+
+.now-showing_movie__images img{
+
+width: 9.1rem;
+height: 13rem;
+    border-radius: 8px;
+    box-shadow: 0px 10px 12px 0px rgb(211, 211, 211);
+  
+}
+
+.movie__sidetext_info{
+
+    width: 15rem;
+}
+
+.popular_headline{
+
+    display: flex;
+  justify-content: space-between;
+}
+
+.movie__genre{
+
+    display: flex;
+
+    
+}
+
+.specific__genre--types{
+
+        background-color: #DBE3FF;
+        color: #88A4E8;
+        border-radius: 2rem;
+        padding-inline: 1rem;
+  
+     
+}
