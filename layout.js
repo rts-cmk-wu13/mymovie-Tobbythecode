@@ -7,7 +7,7 @@ divElm.innerHTML = `
 <header class="header_main" >
     
 </header>
-<main class="pokedex_main">
+<main class="main_main">
 </main>
 <footer class="footer_main">
 
