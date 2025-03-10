@@ -22,19 +22,24 @@ const options = {
 headerElm.className = "Header_main"
 
 headerElm.innerHTML = `
-<section class="navContainer  columns">
-<nav class="Movie__navbar">
-    <figure>
-    <img src="" alt="placeholder.png">
+<section class="navContainer  columns full-width">
+<nav class="Movie__navbar  columns ">
+    <figure class="burger--Menu__header">
+    <i class="fa-solid fa-bars"></i>
 </figure>
 
 <h1>MyMovies</h1>
 
-<button>
-    lights
-</button>
-</nav>
 
+ 
+ 
+</nav>
+<div class="switch">
+<label for="switch"> 
+  <input type="checkbox" name="switch" id="switch">
+  <span class="slider round"></span>
+</label>
+</div>
 </section>
 
 
@@ -121,7 +126,10 @@ ${data.results.map(movie => `
           <p>${movie.vote_average.toFixed(1)}/10 IMDb</p>
           
  <p >
-                  ${movie.genre_ids.map(id => `<span class="specific__genre--types">${genreMap[id] || "Unknown"}</span>`).join(", ")}
+                  ${movie.genre_ids.map(id => `
+                  <span class="specific__genre--types">${genreMap[id]}
+                  </span>`).join(", ")}
+                  
                 </p>
 
           </div>
