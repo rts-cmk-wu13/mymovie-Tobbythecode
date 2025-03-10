@@ -24,29 +24,71 @@ let movie = params.get("movie");
 
 
 
-fetch(`https://api.themoviedb.org/3/movie/${movie}?language=en-US&page=1&append_to_response=credits`, options)
+fetch(`https://api.themoviedb.org/3/movie/${movie}?language=en-US&page=1&append_to_response=credits,release_dates`, options)
+
+
   .then(function(response) {
     return response.json()
 
 }).then(  
-    function(data) {
+    function(movie) {
 
+      let headerElm = document.createElement("div");
+      headerElm.className = "Header_main"  
+      headerElm.innerHTML = `
+  <figure class="backdrop__poster--img full-width">
+    <img src="${baseUrl}/${movie.backdrop_path}" alt="">
+  </figure> 
+      
+     
+      
+      
+      
+      `
+      document.querySelector("header").append(headerElm)
+      ;
 
 let mainElm = document.createElement("section");
 mainElm.className = "main_main "
 
 mainElm.innerHTML = `
-<section class="navContainer ">
-<nav class="Movie__navbar ">
-    <figure>
- <img class=" full-width"  src="${baseUrl}/${data.backdrop_path}" alt="">
-</figure> 
-<p>${Math.floor(movie.runtime/60)}h ${(movie.runtime%60)}min </p>
 
-<p>${data.original_title}</p>  
 
+ <h1>${movie.original_title}</h1>  
+ <p class="no-columns">${movie.vote_average.toFixed(1)}/10 IMDb</p>
+ <section class="no-columns detailed__genres">
+ <p>
+  ${movie.genres.map(genre => `<span class="specific__genre--types ">${genre.name}</span>`).join(", ")}
+</p>
 </section>
+<div class="essenstial__container columns full-width   ">
+<section class=" generic_info--essenstial full-width columns ">
+<p>${Math.floor(movie.runtime/60)}h ${(movie.runtime%60)}min </p>
+${movie.spoken_languages.map(language => `${language.name}`).join(", ")}
+<p>${movie.budget}</p>
+</section>
+</div>
+<h2>description</h2>
+<p class="no-columns description__movie">${movie.overview}</p>
+<div class="columns  popular_headline">
+    <h1>Cast</h1>
+    <button>see more</button>
+  </div>
+       <section class=" castmember__images--scroll colunms">
+     ${movie.credits.cast.map(function(castMember){
+      return `
+      <article> 
 
+<figure>
+  <img class="castmember__images" src="${baseUrl}/${castMember.profile_path}" alt="">
+     </figure>
+     <p>${castMember.name}</p>  </article>
+`
+       })}
+   
+      
+  
+    <section>
 
 
 `
@@ -54,3 +96,4 @@ document.querySelector("main").append(mainElm)
 ;
 
     })
+ 
