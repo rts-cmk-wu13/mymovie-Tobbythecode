@@ -22,13 +22,6 @@ img {
 
 
 
-#root > main {
-    grid-column: fullw;
-    display: grid;
-    grid-template-columns:[fullw-start] 0.5rem [content-start] repeat(2, 1fr) [content-end] 0.5rem [fullw-end];
-
-}
-
 
 
 
@@ -42,7 +35,8 @@ header > * {
 
 
 
-#root > main, #root > footer {
+
+#root > header, #root > main, #root > footer {
     grid-column: fullw;
     display: grid;
     grid-template-columns: subgrid;
@@ -53,6 +47,7 @@ main > *, footer > * {
     display: grid;
     grid-template-columns: subgrid;
 }
+
 
 .full-width {
     grid-column: fullw-start / fullw-end;
@@ -65,7 +60,7 @@ main > *, footer > * {
     display: grid;
     grid-template-columns: subgrid;
     gap: 1.5rem;
-    padding-top: 2rem;
+    padding-block: 0.5rem;
 }
 
 .no-columns {
@@ -96,4 +91,96 @@ width: 9.1rem;
 height: 13rem;
     border-radius: 8px;
     box-shadow: 0px 10px 12px 0px rgb(211, 211, 211);
+}
+
+.backdrop__poster--img {
+    width: 100%;
+    height: 15rem; /* Adjust as needed */
+    position: relative;
+    overflow: hidden; /* Prevents weird spacing */
+   
+}
+
+.backdrop__poster--img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+
+.generic_info--essenstial {
+    
+    display: grid;
+ grid-column: span 3;
+    align-items: center;
+}
+
+
+.generic_info--essenstial{
+   
+    grid-column: span 3;
+
+}
+
+.specific__genre--types{
+
+    background-color: #DBE3FF;
+    color: #88A4E8;
+    border-radius: 2rem;
+    padding-inline: 1rem;
+
+ 
+}
+
+.description__movie{
+
+    color: #9C9C9C;
+}
+
+
+.popular_headline{
+
+    display: flex;
+  justify-content: space-between;
+}
+
+
+.popular_headline button{
+    border: solid 2px #AAA9B1;
+    background-color: transparent;
+    
+    color: #AAA9B1;
+    border-radius: 2rem;
+    padding-inline: 1rem;
+   
+
+   
+}
+
+
+
+
+.detailed__genres{
+    padding-block: 0.5rem;
+
+}
+
+
+
+
+.castmember__images{
+
+    width: 5.5rem;
+    height: 5.5rem;
+    border-radius: 8px;
+  
+}
+
+.castmember__images--scroll{
+
+    display: flex;
+    overflow-x: scroll;
+    gap: 1rem;
+    grid-column: span 3;
 }
