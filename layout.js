@@ -4,7 +4,7 @@ divElm.id = "root"
 
 divElm.innerHTML = `
 
-<header class="header_main" >
+<header class="Header_main" >
     
 </header>
 <main class="main_main">
